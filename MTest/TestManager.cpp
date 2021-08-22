@@ -34,7 +34,7 @@ MANAGER_ERR TestManager::AddFunction(tPreFunction tFunc)
 	{
 		__asm
 		{
-			mov eax, Address
+			mov eax, [Address]
 			mov ebx, [eax + 0x1]
 			add eax, 0x5
 			add eax, ebx
@@ -60,7 +60,7 @@ MANAGER_ERR TestManager::AddFunction(tPreFunction tFunc)
 	
 	__asm
 	{
-		lea eax, PreProcessor
+		lea eax, [PreProcessor]
 		mov [Address], eax
 	}
 
