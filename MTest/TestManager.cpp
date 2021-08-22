@@ -172,17 +172,17 @@ __declspec(naked) void __stdcall PreProcessor()
 {
 	__asm
 	{
-		mov MainProcessor_EAX, eax
-		mov MainProcessor_EBX, ebx
-		mov MainProcessor_ECX, ecx
-		mov MainProcessor_EDX, edx
-		mov MainProcessor_ESI, esi
-		mov MainProcessor_EDI, edi
-		mov MainProcessor_EBP, ebp
-		mov MainProcessor_ESP, esp
+		mov [MainProcessor_EAX], eax
+		mov [MainProcessor_EBX], ebx
+		mov [MainProcessor_ECX], ecx
+		mov [MainProcessor_EDX], edx
+		mov [MainProcessor_ESI], esi
+		mov [MainProcessor_EDI], edi
+		mov [MainProcessor_EBP], ebp
+		mov [MainProcessor_ESP], esp
 
 		pushfd
-		pop MainProcessor_Flags
+		pop [MainProcessor_Flags]
 	}
 
 	__asm
@@ -192,7 +192,7 @@ __declspec(naked) void __stdcall PreProcessor()
 		mov [TempAddress], eax
 
 		mov eax, [esp + 0x4]
-		mov TempAddressRet, eax
+		mov [TempAddressRet], eax
 	}
 
 	__asm pushad;
@@ -205,22 +205,22 @@ __declspec(naked) void __stdcall PreProcessor()
 
 	__asm
 	{
-		mov eax, MainProcessor_EAX
-		mov ebx, MainProcessor_EBX
-		mov ecx, MainProcessor_ECX
-		mov edx, MainProcessor_EDX
-		mov esi, MainProcessor_ESI
-		mov edi, MainProcessor_EDI
-		mov ebp, MainProcessor_EBP
-		mov esp, MainProcessor_ESP
+		mov eax, [MainProcessor_EAX]
+		mov ebx, [MainProcessor_EBX]
+		mov ecx, [MainProcessor_ECX]
+		mov edx, [MainProcessor_EDX]
+		mov esi, [MainProcessor_ESI]
+		mov edi, [MainProcessor_EDI]
+		mov ebp, [MainProcessor_EBP]
+		mov esp, [MainProcessor_ESP]
 
 		push eax
 
 		mov eax, [esp + 0x04]
 		sub eax, 0x05
-		mov BkCalled, eax
+		mov [BkCalled], eax
 
-		mov eax, CaptureRet
+		mov eax, [CaptureRet]
 		mov [esp + 0x08], eax
 
 		pop eax
@@ -235,7 +235,7 @@ __declspec(naked) void __stdcall CaptureRet()
 {
 	__asm
 	{
-		mov RetEAX, eax
+		mov [RetEAX], eax
 	}
 
 	__asm pushad;

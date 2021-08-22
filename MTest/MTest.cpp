@@ -1,6 +1,13 @@
 // MTest.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+/*
+Configuration Properties->
+    Linker->
+        Advanced->
+            Image Has Safe Exception Handlers [Yes (/SAFESEH) => No (/SAFESEH:NO)
+*/
+
 #include "TestManager.h"
 
 class Test1
@@ -218,6 +225,7 @@ int main()
 
     ShowResults();
 
+    std::cout << "Press any key to exit..." << std::endl;
     std::cin.get();
 
     return 0;
