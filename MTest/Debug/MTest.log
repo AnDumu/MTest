@@ -1,7 +1,0 @@
-﻿  MTest.cpp
-  TestManager.cpp
-  Utilities.cpp
-  Generating Code...
-detours.lib(detours.obj) : warning LNK4099: PDB 'detours.pdb' was not found with 'detours.lib(detours.obj)' or at 'C:\Users\ANDUMU\Documents\Visual Studio 2019\Projects\MTest\Debug\detours.pdb'; linking object as if no debug info
-detours.lib(disasm.obj) : warning LNK4099: PDB 'detours.pdb' was not found with 'detours.lib(disasm.obj)' or at 'C:\Users\ANDUMU\Documents\Visual Studio 2019\Projects\MTest\Debug\detours.pdb'; linking object as if no debug info
-  MTest.vcxproj -> C:\Users\ANDUMU\Documents\Visual Studio 2019\Projects\MTest\Debug\MTest.exe
