@@ -110,8 +110,8 @@ void AddTest_Test1Class_FunctionTest1(Test1 & pclass, int CountParameters, BOOL 
         lea eax, [Test1::FunctionTest1]
         cmp byte ptr [eax], 0xE9
         jne pass
-        mov ebx, [eax + 0x1]
-        add eax, 0x5
+        mov ebx, [eax + 0x01]
+        add eax, 0x05
         add eax, ebx
 pass:
         mov [tmp.FunctionAddress], eax
