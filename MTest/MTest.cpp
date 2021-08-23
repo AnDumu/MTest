@@ -1,6 +1,15 @@
 // MTest.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+/*
+* If Microsoft starts crying then change this:
+* 
+Configuration Properties->
+    Linker->
+        Advanced->
+            Image Has Safe Exception Handlers [Yes (/SAFESEH) => No (/SAFESEH:NO)
+*/
+
 #include "TestManager.h"
 
 class Test1
@@ -84,7 +93,7 @@ void AddTest_Test1Class_FunctionTest1(Test1 & pclass, int CountParameters, BOOL 
 
     __asm
     {
-        lea eax, Test1::FunctionTest1
+        lea eax, [Test1::FunctionTest1]
         mov [tmp.FunctionAddress], eax
     }
 
@@ -98,7 +107,7 @@ void AddTest_Test1Class_FunctionTest1(Test1 & pclass, int CountParameters, BOOL 
     // ########### ERROR - ALREADY ADDED ###########
     __asm
     {
-        lea eax, Test1::FunctionTest1
+        lea eax, [Test1::FunctionTest1]
         cmp byte ptr [eax], 0xE9
         jne pass
         mov ebx, [eax + 0x1]
@@ -137,7 +146,7 @@ void AddTest_Test1Class_FunctionTest2(Test1 & pclass, int CountParameters, BOOL 
 
     __asm
     {
-        lea eax, Test1::FunctionTest2
+        lea eax, [Test1::FunctionTest2]
         mov [tmp.FunctionAddress], eax
     }
 
