@@ -35,8 +35,8 @@ MANAGER_ERR TestManager::AddFunction(tPreFunction tFunc)
 		__asm
 		{
 			mov eax, [Address]
-			mov ebx, [eax + 0x1]
-			add eax, 0x5
+			mov ebx, [eax + 0x01]
+			add eax, 0x05
 			add eax, ebx
 			mov [Address], eax
 		}
@@ -191,7 +191,7 @@ __declspec(naked) void __stdcall PreProcessor()
 		sub eax, 0x05
 		mov [TempAddress], eax
 
-		mov eax, [esp + 0x4]
+		mov eax, [esp + 0x04]
 		mov [TempAddressRet], eax
 	}
 
